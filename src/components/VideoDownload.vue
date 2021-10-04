@@ -76,7 +76,7 @@ export default {
       );
 
 
-      this.axios.post("http://localhost:8000/video", { 'video_src': this.video_src });
+      this.axios.post("https://y2dl-production-1342478082.us-east-1.elb.amazonaws.com/video/", { 'video_src': this.video_src });
     }
   }
 }
