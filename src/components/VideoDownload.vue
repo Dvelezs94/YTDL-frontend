@@ -1,7 +1,7 @@
 <template>
-  <div class="flex justify-center pt-20">
+  <div class="flex justify-center">
     <div>
-      <img class="w-2/3 ml-auto mr-auto mb-6" :src="require('../assets/logomain.png')">
+      <img class="w-2/3 ml-auto mr-auto mb-6" :src="require('../assets/logomain.png')" alt="Youtube converter to Mp3">
       <form name="postVideoForm" @submit="postVideoForDownload" method="post">
         <div class="flex border border-gray-200 rounded-full p-4 shadow text-xl">
             <input class="w-full outline-none px-3" type="text" placeholder="Paste Youtube link here" required="true" v-model="video_src" />
@@ -18,18 +18,22 @@
       </form>
     </div>
   </div>
+  <ToolDescription/>
 </template>
 
 <script>
 import DownloadButton from "./DownloadButton.vue";
 import LoadingButton from "./LoadingButton.vue";
 import ErrorAlert from "./ErrorAlert.vue";
+import ToolDescription from "./ToolDescription.vue";
+
 export default {
   name: 'VideoDownload',
   components: {
     DownloadButton, 
     LoadingButton,
-    ErrorAlert
+    ErrorAlert,
+    ToolDescription
   },
   data() {
     return {
