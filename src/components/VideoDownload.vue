@@ -44,7 +44,14 @@ export default {
   methods: {
     postVideoForDownload(e) {
       e.preventDefault();
-      this.axios.interceptors.request.use(
+
+      const axiosInstance = this.axios.create({
+        headers: {
+          "Access-Control-Allow-Origin": "*"
+        }
+      });
+
+      axiosInstance.interceptors.request.use(
         req => {
           this.loading_component = LoadingButton
           document.getElementById("submitSource").disabled = true
@@ -58,7 +65,7 @@ export default {
         }
       );
 
-      this.axios.interceptors.response.use(
+      axiosInstance.interceptors.response.use(
         res => {
           this.loading_component = null
           document.getElementById("submitSource").disabled = false
@@ -76,7 +83,7 @@ export default {
       );
 
 
-      this.axios.post("https://api.y2dl.co/video", { 'video_src': this.video_src });
+      axiosInstance.post("https://api.y2dl.co/video", { 'video_src': this.video_src });
     }
   }
 }
