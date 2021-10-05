@@ -2,7 +2,7 @@
     <div class="container mx-auto sm:px-4 mt-4">
         <hr class="bg-gray-400">
     </div>
-    <section class="container mx-auto px-5 py-12 lg:py-28">
+    <section class="container mx-auto px-5 py-12">
    <!-- Start Features -->
    <div class="grid xl:grid-cols-3 gap-10">
       <div class="">
